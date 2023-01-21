@@ -20,20 +20,16 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
-          child: Center(
-              child: Column(
+          child: Column(
             children: [
               buildHeight(20.0),
               searchBox(),
               buildHeight(20.0),
-              Center(
-                child: Text(
-                  "Most Needed",
-                  style: GoogleFonts.poppins(textStyle: headingStyle()),
-                ),
+              Text(
+                "Most Needed",
+                style: GoogleFonts.poppins(textStyle: headingStyle()),
               ),
-              Container(
-                height: MediaQuery.of(context).size.height - 179,
+              Expanded(
                 child: GridView.builder(
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
@@ -41,74 +37,62 @@ class _HomePageState extends State<HomePage> {
                     itemCount: categories.length,
                     itemBuilder: (((context, index) {
                       final cat = categories[index]!;
-                      return Stack(children: [
-                        Container(
-                          margin: const EdgeInsets.all(10.0),
-                          decoration: BoxDecoration(
-                            color: Constants().boxColor,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          height: 150,
-                          child: AspectRatio(
-                            aspectRatio: 1,
-                            child: Center(
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              flex: 3,
                               child: Container(
-                                height: 60,
-                                width: 60,
-                                color: Colors.teal[400],
-                                child: Center(child: Text("Icon")),
+                                width: double.infinity,
+                                decoration: const BoxDecoration(
+                                  color: Colors.teal,
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(15),
+                                      topRight: Radius.circular(15)),
+                                ),
+                                child: const Center(
+                                  child: Text("Icon"),
+                                ),
                               ),
                             ),
-                          ),
-                        ),
-                        Positioned(
-                          right: 10,
-                          bottom: 0,
-                          child: Container(
-                            padding: const EdgeInsets.only(
-                                left: 20.0, right: 10.0, top: 8.0, bottom: 8.0),
-                            height: 35,
-                            width: 150,
-                            decoration: BoxDecoration(
-                              color: Constants().desBoxColor,
-                              borderRadius: const BorderRadius.only(
-                                  bottomLeft: Radius.circular(15),
-                                  bottomRight: Radius.circular(15)),
-                            ),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  cat,
-                                  style: GoogleFonts.poppins(
-                                      fontWeight: FontWeight.w500,
-                                      color: Constants().textColor),
+                            Expanded(
+                              flex: 1,
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                  color: Colors.teal,
+                                  borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(15),
+                                      bottomRight: Radius.circular(15)),
                                 ),
-                                const Spacer(),
-                                SizedBox(
-                                  height: 30,
-                                  width: 30,
-                                  child: GestureDetector(
-                                      onTap: () {
-                                        Navigator.pushNamed(
-                                            context, "/details");
-                                      },
-                                      child: Icon(
-                                        Icons.navigate_next_rounded,
-                                        color: Constants().textColor,
-                                      )),
-                                )
-                              ],
-                            ),
-                          ),
-                        )
-                      ]);
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        cat,
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      const Icon(
+                                          Icons.arrow_forward_ios_rounded)
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      );
                     }))),
               ),
               buildHeight(10.0),
             ],
-          )),
+          ),
         ),
       ),
     );
@@ -118,7 +102,6 @@ class _HomePageState extends State<HomePage> {
 Widget searchBox() {
   return Container(
     height: 54,
-    width: 330,
     padding: const EdgeInsets.symmetric(horizontal: 15),
     decoration: BoxDecoration(
       color: const Color(0xffF7F7F7),
@@ -127,7 +110,7 @@ Widget searchBox() {
     ),
     child: TextField(
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.all(0),
+        contentPadding: const EdgeInsets.all(0),
         prefixIcon: Icon(
           Icons.search,
           color: Constants().textColor,
