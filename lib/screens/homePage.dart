@@ -49,8 +49,9 @@ class _HomePageState extends State<HomePage> {
                                 decoration: const BoxDecoration(
                                   color: Colors.teal,
                                   borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(15),
-                                      topRight: Radius.circular(15)),
+                                    topLeft: Radius.circular(15),
+                                    topRight: Radius.circular(15),
+                                  ),
                                 ),
                                 child: const Center(
                                   child: Text("Icon"),

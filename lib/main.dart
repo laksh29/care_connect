@@ -1,12 +1,9 @@
 import 'package:care_connect/screens/catDetailsPage.dart';
 import 'package:care_connect/firebase_options.dart';
-import 'package:care_connect/homePage.dart';
-import 'package:care_connect/loginPage.dart';
 import 'package:care_connect/screens/homePage.dart';
 import 'package:care_connect/screens/loginPage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +16,7 @@ void main() async {
       useMaterial3: true,
     ),
     routes: {
-      "/": (context) => const LoginPage(),
+      "/": (context) => LoginPage(),
       "/homepage": (context) => const HomePage(),
       "/details": (context) => const Details(),
     },
