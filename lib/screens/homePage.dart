@@ -1,4 +1,5 @@
 import 'package:care_connect/constants/constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -22,6 +23,16 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               buildHeight(20.0),
+              Row(
+                children: [
+                  // Text(FirebaseAuth.instance.currentUser!.email.toString()),
+                  IconButton(
+                      onPressed: () {
+                        FirebaseAuth.instance.signOut();
+                      },
+                      icon: const Icon(Icons.logout))
+                ],
+              ),
               searchBox(),
               buildHeight(20.0),
               Text(
