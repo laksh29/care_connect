@@ -1,8 +1,9 @@
 import 'dart:ffi';
 
-import 'package:care_connect/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../constants/constants.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
