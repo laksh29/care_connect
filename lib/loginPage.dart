@@ -8,7 +8,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: pageBgColor,
+      backgroundColor: Constants().pageBgColor,
       body: SafeArea(
           child: Center(
         child: Column(
@@ -30,7 +30,7 @@ class LoginPage extends StatelessWidget {
                 textStyle: TextStyle(
                     fontSize: 35,
                     fontWeight: FontWeight.bold,
-                    color: textColor),
+                    color: Constants().textColor),
               ),
             ),
             const Spacer(),
@@ -42,7 +42,7 @@ class LoginPage extends StatelessWidget {
                     Navigator.pushNamed(context, "/homepage");
                   },
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: ctaBgColor,
+                      backgroundColor: Constants().ctaBgColor,
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 10)),
                   child: Row(
@@ -59,7 +59,7 @@ class LoginPage extends StatelessWidget {
                       Text(
                         "Login",
                         style: GoogleFonts.poppins(
-                            fontSize: 22, color: textColor),
+                            fontSize: 22, color: Constants().textColor),
                       )
                     ],
                   )),
