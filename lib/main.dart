@@ -1,3 +1,4 @@
+import 'package:care_connect/catDetailsPage.dart';
 import 'package:care_connect/homePage.dart';
 import 'package:care_connect/loginPage.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,8 @@ void main() {
     ),
     routes: {
       "/": (context) => LoginPage(),
-      "/homepage": (context) => HomePage()
+      "/homepage": (context) => HomePage(),
+      "/details":(context) => Details(),
     },
   ));
 }

@@ -19,9 +19,9 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: const Color(0xffe2fffe),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
           child: Center(
-              child: ListView(
+              child: Column(
             children: [
               buildHeight(20.0),
               searchBox(),
@@ -29,36 +29,84 @@ class _HomePageState extends State<HomePage> {
               Center(
                 child: Text(
                   "Most Needed",
-                  style: GoogleFonts.poppins(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Constants().headingColor),
+                  style: GoogleFonts.poppins(textStyle: headingStyle()),
                 ),
               ),
               Container(
-                height: MediaQuery.of(context).size.height - 170,
+                height: MediaQuery.of(context).size.height - 179,
                 child: GridView.builder(
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2),
                     itemCount: categories.length,
                     itemBuilder: (((context, index) {
-                      return Container(
-                        margin: const EdgeInsets.all(10.0),
-                        decoration: BoxDecoration(
+                      final cat = categories[index]!;
+                      return Stack(children: [
+                        Container(
+                          margin: const EdgeInsets.all(10.0),
+                          decoration: BoxDecoration(
                             color: Constants().boxColor,
-                            borderRadius: BorderRadius.circular(15),
-                            border: Border.all()),
-                        height: 150,
-                        child: AspectRatio(
-                          aspectRatio: 1,
-                          child: Center(
-                            child: Text(categories[index]!),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          height: 150,
+                          child: AspectRatio(
+                            aspectRatio: 1,
+                            child: Center(
+                              child: Container(
+                                height: 60,
+                                width: 60,
+                                color: Colors.teal[400],
+                                child: Center(child: Text("Icon")),
+                              ),
+                            ),
                           ),
                         ),
-                      );
+                        Positioned(
+                          right: 10,
+                          bottom: 0,
+                          child: Container(
+                            padding: const EdgeInsets.only(
+                                left: 20.0, right: 10.0, top: 8.0, bottom: 8.0),
+                            height: 35,
+                            width: 150,
+                            decoration: BoxDecoration(
+                              color: Constants().desBoxColor,
+                              borderRadius: const BorderRadius.only(
+                                  bottomLeft: Radius.circular(15),
+                                  bottomRight: Radius.circular(15)),
+                            ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  cat,
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
+                                      color: Constants().textColor),
+                                ),
+                                const Spacer(),
+                                SizedBox(
+                                  height: 30,
+                                  width: 30,
+                                  child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.pushNamed(
+                                            context, "/details");
+                                      },
+                                      child: Icon(
+                                        Icons.navigate_next_rounded,
+                                        color: Constants().textColor,
+                                      )),
+                                )
+                              ],
+                            ),
+                          ),
+                        )
+                      ]);
                     }))),
-              )
+              ),
+              buildHeight(10.0),
             ],
           )),
         ),
@@ -78,7 +126,6 @@ Widget searchBox() {
       borderRadius: BorderRadius.circular(15),
     ),
     child: TextField(
-      // onChanged: (value) => _runFilter(value),
       decoration: InputDecoration(
         contentPadding: EdgeInsets.all(0),
         prefixIcon: Icon(
