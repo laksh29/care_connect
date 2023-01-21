@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "964625707662",
+    "project_id": "hospitalmanagament101",
+    "storage_bucket": "hospitalmanagament101.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964625707662:android:ff95bc6ac3d69b2a4f4fdf",
+        "android_client_info": {
+          "package_name": "com.careconnect.care_connect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "964625707662-idf73dq9i2i2t7ljfn5jjalj822uaciv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm9zR676Od5HZKWGeWYZcZG5a0t-3SK_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "964625707662-idf73dq9i2i2t7ljfn5jjalj822uaciv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
