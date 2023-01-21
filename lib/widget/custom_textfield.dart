@@ -7,7 +7,7 @@ class CustomTextField extends StatelessWidget {
   TextInputType textInputType;
   bool obscureText;
   String hintText;
-  IconData icon;
+  IconData? icon;
   CustomTextField({
     Key? key,
     required this.textInputType,
@@ -20,7 +20,7 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       obscureText: obscureText,
-      keyboardType: TextInputType.emailAddress,
+      keyboardType: textInputType,
       enableSuggestions: false,
       autocorrect: false,
       decoration: InputDecoration(
