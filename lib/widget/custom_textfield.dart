@@ -7,18 +7,25 @@ class CustomTextField extends StatelessWidget {
   TextInputType textInputType;
   bool obscureText;
   String hintText;
+<<<<<<< HEAD
+  IconData icon;
+  TextEditingController controller;
+=======
   IconData? icon;
+>>>>>>> 2fb760442161e32ff9a0157f56433beef7874bea
   CustomTextField({
     Key? key,
     required this.textInputType,
     required this.obscureText,
     required this.hintText,
     required this.icon,
+    required this.controller,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       obscureText: obscureText,
       keyboardType: textInputType,
       enableSuggestions: false,
