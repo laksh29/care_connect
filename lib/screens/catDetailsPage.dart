@@ -10,7 +10,7 @@ class Details extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Constants().pageBgColor,
+      backgroundColor: pageBgColor,
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.only(top: 25, left: 8.0, right: 8.0),
@@ -19,7 +19,7 @@ class Details extends StatelessWidget {
             children: [
               Text(
                 "Available Beds Around",
-                style: GoogleFonts.poppins(textStyle: headingStyle()),
+                style: GoogleFonts.poppins(textStyle: StyleConstants().headingStyle),
               ),
               buildHeight(10.0),
               SizedBox(
@@ -35,7 +35,7 @@ class Details extends StatelessWidget {
                         padding:
                             const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                         decoration: BoxDecoration(
-                          color: Constants().boxColor,
+                          color: boxColor,
                           borderRadius: BorderRadius.circular(15),
                         ),
                       );

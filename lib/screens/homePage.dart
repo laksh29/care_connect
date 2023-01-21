@@ -26,10 +26,12 @@ class _HomePageState extends State<HomePage> {
               buildHeight(20.0),
               Text(
                 "Most Needed",
-                style: GoogleFonts.poppins(textStyle: headingStyle()),
+                style: GoogleFonts.poppins(
+                    textStyle: StyleConstants().headingStyle),
               ),
               Expanded(
                 child: GridView.builder(
+                    physics: const BouncingScrollPhysics(),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2),
@@ -60,27 +62,36 @@ class _HomePageState extends State<HomePage> {
                             ),
                             Expanded(
                               flex: 1,
-                              child: Container(
-                                decoration: const BoxDecoration(
-                                  color: Colors.teal,
-                                  borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(15),
-                                      bottomRight: Radius.circular(15)),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        cat,
-                                        style: const TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      const Icon(
-                                          Icons.arrow_forward_ios_rounded)
-                                    ],
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.pushNamed(context, "/details");
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: desBoxColor,
+                                    borderRadius: const BorderRadius.only(
+                                        bottomLeft: Radius.circular(15),
+                                        bottomRight: Radius.circular(15)),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          cat,
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              color: textColor),
+                                        ),
+                                        Icon(
+                                          Icons.arrow_forward_ios_rounded,
+                                          size: 15,
+                                          color: textColor,
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -105,7 +116,7 @@ Widget searchBox() {
     padding: const EdgeInsets.symmetric(horizontal: 15),
     decoration: BoxDecoration(
       color: const Color(0xffF7F7F7),
-      border: Border.all(color: Constants().ctaBgColor, width: 2),
+      border: Border.all(color: ctaBgColor, width: 2),
       borderRadius: BorderRadius.circular(15),
     ),
     child: TextField(
@@ -113,7 +124,7 @@ Widget searchBox() {
         contentPadding: const EdgeInsets.all(0),
         prefixIcon: Icon(
           Icons.search,
-          color: Constants().textColor,
+          color: textColor,
           size: 20,
         ),
         prefixIconConstraints: const BoxConstraints(
@@ -122,7 +133,7 @@ Widget searchBox() {
         ),
         border: InputBorder.none,
         hintText: 'Search',
-        hintStyle: TextStyle(color: Constants().textColor),
+        hintStyle: TextStyle(color: textColor),
       ),
     ),
   );

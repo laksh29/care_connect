@@ -2,6 +2,7 @@ import 'package:care_connect/screens/catDetailsPage.dart';
 import 'package:care_connect/firebase_options.dart';
 import 'package:care_connect/screens/homePage.dart';
 import 'package:care_connect/screens/loginPage.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ void main() async {
       useMaterial3: true,
     ),
     routes: {
-      "/": (context) => LoginPage(),
+      "/": (context) => const LoginPage(),
       "/homepage": (context) => const HomePage(),
       "/details": (context) => const Details(),
     },
