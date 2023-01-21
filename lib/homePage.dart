@@ -29,12 +29,13 @@ class _HomePageState extends State<HomePage> {
               Center(
                 child: Text(
                   "Most Needed",
-                  style: GoogleFonts.poppins(textStyle: headingStyle()),
+                  style: StyleConstants().headingStyle,
                 ),
               ),
               Container(
                 height: MediaQuery.of(context).size.height - 179,
                 child: GridView.builder(
+                    physics: BouncingScrollPhysics(),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2),
@@ -45,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           margin: const EdgeInsets.all(10.0),
                           decoration: BoxDecoration(
-                            color: Constants().boxColor,
+                            color: boxColor,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           height: 150,
@@ -66,11 +67,11 @@ class _HomePageState extends State<HomePage> {
                           bottom: 0,
                           child: Container(
                             padding: const EdgeInsets.only(
-                                left: 20.0, right: 10.0, top: 8.0, bottom: 8.0),
+                                left: 20.0, right: 0.0, top: 8.0, bottom: 8.0),
                             height: 35,
                             width: 150,
                             decoration: BoxDecoration(
-                              color: Constants().desBoxColor,
+                              color: desBoxColor,
                               borderRadius: const BorderRadius.only(
                                   bottomLeft: Radius.circular(15),
                                   bottomRight: Radius.circular(15)),
@@ -83,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                                   cat,
                                   style: GoogleFonts.poppins(
                                       fontWeight: FontWeight.w500,
-                                      color: Constants().textColor),
+                                      color: textColor),
                                 ),
                                 const Spacer(),
                                 SizedBox(
@@ -96,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                                       },
                                       child: Icon(
                                         Icons.navigate_next_rounded,
-                                        color: Constants().textColor,
+                                        color: textColor,
                                       )),
                                 )
                               ],
@@ -122,7 +123,7 @@ Widget searchBox() {
     padding: const EdgeInsets.symmetric(horizontal: 15),
     decoration: BoxDecoration(
       color: const Color(0xffF7F7F7),
-      border: Border.all(color: Constants().ctaBgColor, width: 2),
+      border: Border.all(color: ctaBgColor, width: 2),
       borderRadius: BorderRadius.circular(15),
     ),
     child: TextField(
@@ -130,7 +131,7 @@ Widget searchBox() {
         contentPadding: EdgeInsets.all(0),
         prefixIcon: Icon(
           Icons.search,
-          color: Constants().textColor,
+          color: textColor,
           size: 20,
         ),
         prefixIconConstraints: const BoxConstraints(
@@ -139,7 +140,7 @@ Widget searchBox() {
         ),
         border: InputBorder.none,
         hintText: 'Search',
-        hintStyle: TextStyle(color: Constants().textColor),
+        hintStyle: TextStyle(color: textColor),
       ),
     ),
   );
