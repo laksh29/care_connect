@@ -1,4 +1,4 @@
-import 'package:care_connect/constants.dart';
+import 'package:care_connect/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -30,10 +30,10 @@ class Details extends StatelessWidget {
                       return Container(
                         height: 75,
                         width: 340,
-                        margin: EdgeInsets.only(
+                        margin: const EdgeInsets.only(
                             top: 5, left: 10, right: 10, bottom: 2),
                         padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                            const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                         decoration: BoxDecoration(
                           color: boxColor,
                           borderRadius: BorderRadius.circular(15),

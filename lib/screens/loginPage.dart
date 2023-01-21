@@ -17,7 +17,7 @@ class LoginPage extends StatelessWidget {
         child: Column(
           children: [
             buildHeight(30.0),
-            Container(
+            SizedBox(
               height: 250,
               child: AspectRatio(
                 aspectRatio: 1,
