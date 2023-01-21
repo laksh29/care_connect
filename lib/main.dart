@@ -17,11 +17,12 @@ void main() async {
       primarySwatch: Colors.blue,
       useMaterial3: true,
     ),
-    home: const RegistrationForm(),
-    // routes: {
-    //   "/": (context) => const LoginPage(),
-    //   "/homepage": (context) => const HomePage(),
-    //   "/details": (context) => const Details(),
-    // },
+    // home: const RegistrationForm(),
+    routes: {
+      "/": (context) => const LoginPage(),
+      "/homepage": (context) => const HomePage(),
+      "/details": (context) => const Details(),
+      "/registration": (context) => const RegistrationForm(),
+    },
   ));
 }
