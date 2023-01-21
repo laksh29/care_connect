@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+import 'package:care_connect/widget/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -90,6 +91,7 @@ Future<dynamic> buildLogin(BuildContext context) {
             style: StyleConstants().titleStyle,
           ),
           content: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Container(
                 padding: const EdgeInsets.only(left: 8.0),
@@ -187,6 +189,7 @@ Future<dynamic> buildSignup(BuildContext context) {
             style: StyleConstants().titleStyle,
           ),
           content: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Container(
                 padding: const EdgeInsets.only(left: 8.0),
@@ -196,26 +199,11 @@ Future<dynamic> buildSignup(BuildContext context) {
                     color: Colors.amber,
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(color: ctaBgColor, width: 2)),
-                child: TextField(
-                  keyboardType: TextInputType.emailAddress,
-                  enableSuggestions: false,
-                  autocorrect: false,
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.all(8.0),
-                    prefixIcon: Icon(
-                      Icons.person,
-                      size: 20,
-                      color: textColor,
-                    ),
-                    prefixIconConstraints: const BoxConstraints(
-                      maxHeight: 17,
-                      maxWidth: 25,
-                    ),
-                    border: InputBorder.none,
-                    hintText: "Email Id",
-                    hintStyle: StyleConstants().loginStyle,
-                  ),
-                ),
+                child: CustomTextField(
+                    hintText: "Email",
+                    icon: Icons.person_rounded,
+                    obscureText: false,
+                    textInputType: TextInputType.emailAddress),
               ),
               buildHeight(15.0),
               Container(
