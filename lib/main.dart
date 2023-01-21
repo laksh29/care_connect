@@ -12,10 +12,11 @@ void main() {
       primarySwatch: Colors.blue,
       useMaterial3: true,
     ),
-    routes: {
-      "/": (context) => LoginPage(),
-      "/homepage": (context) => HomePage(),
-      "/details": (context) => Details(),
-    },
+    home: const LoginPage(),
+    // routes: {
+    //   "/": (context) => LoginPage(),
+    //   "/homepage": (context) => HomePage(),
+    //   "/details": (context) => Details(),
+    // },
   ));
 }
