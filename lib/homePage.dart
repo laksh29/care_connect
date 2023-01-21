@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
         child: Padding(
           padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
           child: Center(
-              child: Column(
+              child: ListView(
             children: [
               buildHeight(20.0),
               searchBox(),
