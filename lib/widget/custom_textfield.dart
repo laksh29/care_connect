@@ -7,8 +7,12 @@ class CustomTextField extends StatelessWidget {
   TextInputType textInputType;
   bool obscureText;
   String hintText;
+<<<<<<< HEAD
   IconData icon;
   TextEditingController controller;
+=======
+  IconData? icon;
+>>>>>>> 2fb760442161e32ff9a0157f56433beef7874bea
   CustomTextField({
     Key? key,
     required this.textInputType,
@@ -23,7 +27,7 @@ class CustomTextField extends StatelessWidget {
     return TextField(
       controller: controller,
       obscureText: obscureText,
-      keyboardType: TextInputType.emailAddress,
+      keyboardType: textInputType,
       enableSuggestions: false,
       autocorrect: false,
       decoration: InputDecoration(
