@@ -1,8 +1,10 @@
 import 'package:care_connect/constants/constants.dart';
 import 'package:care_connect/screens/registration.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../widget/registrationForm.dart';
 
@@ -76,7 +78,13 @@ class _CatCountState extends State<CatCount> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0))),
                       onPressed: () {
-                        Navigator.pushNamed(context, "/bottomNav");
+                        final snackBar = SnackBar(
+                          content: Text(
+                            "Your Response has been recorded !",
+                            style: GoogleFonts.poppins(),
+                          ),
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       },
                       child: Text(
                         "Submit",
