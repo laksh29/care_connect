@@ -81,9 +81,11 @@ Future<dynamic> buildSignup(
                           FirebaseFirestore.instance
                               .collection('Hospitals')
                               .id) {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const RegistrationForm(),
-                        ));
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const RegistrationForm(),
+                          ),
+                        );
                       }
                     } on FirebaseAuthException catch (e) {
                       Navigator.pop(context);
@@ -127,6 +129,7 @@ Future<dynamic> buildSignup(
                         );
                       }
                     }
+                    Navigator.pushNamed(context, "/registration");
                   },
                   child: Text(
                     "Signup",
