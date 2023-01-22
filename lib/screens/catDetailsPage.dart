@@ -57,18 +57,30 @@ class Details extends StatelessWidget {
                                       color: boxColor,
                                       borderRadius: BorderRadius.circular(15),
                                     ),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text(
-                                          snapshot.data!.docs
-                                              .elementAt(index)['Items'][index]
-                                                  ['itemName']
-                                              .toString(),
-                                          style: StyleConstants()
-                                              .hospitalNameStyle,
-                                        ),
+                                        Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                snapshot.data!.docs
+                                                    .elementAt(index)[
+                                                        'hospitalDetails']
+                                                        ['name']
+                                                    .toString(),
+                                              ),
+                                              Text(
+                                                snapshot.data!.docs
+                                                    .elementAt(index)['Items']
+                                                        [index][cat]
+                                                    .toString(),
+                                                style: StyleConstants()
+                                                    .hospitalNameStyle,
+                                              )
+                                            ]),
                                         Row(
                                           children: [
                                             Text(
