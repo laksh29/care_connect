@@ -1,16 +1,6 @@
-# care_connect
+# CareConnect
 
-A new Flutter project.
+Our team ALPA, presents CareConnect as our submission for HackFit 2, a hackathon organized by MLH.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+CareConnect is a platform that allows hospitals to share and access medical resources during a pandemic or severe accident. By registering on the platform, hospitals can input the extra resources they have available, and this information is then shared with other hospitals in the area. The platform also provides contact details for hospitals, allowing them to easily reach out and access the resources they need to save lives. CareConnect aims to connect medical institutions and improve care during crisis situations.
