@@ -19,17 +19,19 @@ class Details extends StatelessWidget {
     var cat = ModalRoute.of(context)!.settings.arguments;
     return Scaffold(
       backgroundColor: pageBgColor,
+      appBar: AppBar(
+        title: Text(
+          "Available $cat Around",
+          style: GoogleFonts.poppins(
+              fontSize: 18, fontWeight: FontWeight.bold, color: headingColor),
+        ),
+      ),
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.only(top: 25, left: 8.0, right: 8.0),
         child: Center(
           child: Column(
             children: [
-              Text(
-                "Available $cat Around",
-                style: GoogleFonts.poppins(
-                    textStyle: StyleConstants().headingStyle),
-              ),
               buildHeight(10.0),
               Expanded(
                 child: StreamBuilder(
@@ -43,34 +45,59 @@ class Details extends StatelessWidget {
                             itemBuilder: ((context, index) {
                               debugPrint(
                                   "======>" + snapshot.data!.docs.first.id);
-                              return Container(
-                                height: 75,
-                                width: 340,
-                                margin: const EdgeInsets.only(
-                                    top: 5, left: 10, right: 10, bottom: 2),
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 20, vertical: 10),
-                                decoration: BoxDecoration(
-                                  color: boxColor,
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      snapshot.data!.docs
-                                          .elementAt(index)['hospitalDetails']
-                                              ['name']
-                                          .toString(),
+                              return GestureDetector(
+                                child: Container(
+                                    height: 75,
+                                    width: 340,
+                                    margin: const EdgeInsets.only(
+                                        top: 5, left: 10, right: 10, bottom: 2),
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20, vertical: 10),
+                                    decoration: BoxDecoration(
+                                      color: boxColor,
+                                      borderRadius: BorderRadius.circular(15),
                                     ),
-                                    Text(
-                                      snapshot.data!.docs
-                                          .elementAt(index)['Items'][index][cat]
-                                          .toString(),
-                                    ),
-                                  ],
-                                ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                snapshot.data!.docs
+                                                    .elementAt(index)[
+                                                        'hospitalDetails']
+                                                        ['name']
+                                                    .toString(),
+                                              ),
+                                              Text(
+                                                snapshot.data!.docs
+                                                    .elementAt(index)['Items']
+                                                        [index][cat]
+                                                    .toString(),
+                                                style: StyleConstants()
+                                                    .hospitalNameStyle,
+                                              )
+                                            ]),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              "23 beds, 23 kms",
+                                              style: GoogleFonts.poppins(
+                                                  color: textColor),
+                                            ),
+                                            const Spacer(),
+                                            Icon(
+                                              Icons.navigate_next_rounded,
+                                              color: textColor,
+                                              size: 25,
+                                            )
+                                          ],
+                                        )
+                                      ],
+                                    )),
                               );
                             }));
                       } else if (snapshot.hasError) {
@@ -87,3 +114,9 @@ class Details extends StatelessWidget {
     );
   }
 }
+
+
+// Text(snapshot.data!.docs
+//                                     .elementAt(index)['Items'][index]
+//                                         ['itemName']
+//                                     .toString()),

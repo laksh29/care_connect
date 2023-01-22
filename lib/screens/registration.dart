@@ -1,12 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:care_connect/constants/constants.dart';
+import 'package:care_connect/widget/custom_textfield.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
-import 'package:care_connect/constants/constants.dart';
-import 'package:care_connect/widget/custom_textfield.dart';
+import '../widget/registrationForm.dart';
 
 class RegistrationForm extends StatefulWidget {
   const RegistrationForm({super.key});
@@ -152,6 +153,16 @@ class RegistrationFormState extends State<RegistrationForm> {
                             .collection('Hospitals')
                             .doc(uid)
                             .set({
+                          "Items": [
+                            {
+                              "Oxygen": "",
+                              "Bed": "",
+                              "Ambulance": "",
+                              "Nurse": "",
+                              "Doctor": "",
+                              "Attenders": "",
+                            }
+                          ],
                           "hospitalDetails": {
                             "address": addressController.text,
                             "emergencyNo": emergencyNoController.text,

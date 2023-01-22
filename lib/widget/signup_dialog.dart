@@ -15,7 +15,7 @@ Future<dynamic> buildSignup(
       builder: (context) => AlertDialog(
           title: Text(
             "Signup",
-            style: StyleConstants().titleStyle,
+            style: StyleConstants().signupStyle,
           ),
           content: Column(
             mainAxisSize: MainAxisSize.min,

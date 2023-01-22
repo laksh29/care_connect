@@ -68,6 +68,16 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/google search.png
+    - assets/careConnect.png
+    - assets/bed.png
+    - assets/oxygen.png
+    - assets/ambulance.png
+    - assets/nurse.png
+    - assets/doctor.png
+    - assets/attender.png
+    - assets/medicine.png
+    - assets/paracetamol.png
+    - assets/crocin.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

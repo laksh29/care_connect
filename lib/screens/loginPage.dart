@@ -30,8 +30,12 @@ class LoginPage extends StatelessWidget {
                   height: 250,
                   child: AspectRatio(
                     aspectRatio: 1,
-                    child: Container(
-                      color: Colors.grey,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: const Image(
+                        image: AssetImage("assets/careConnect.png"),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),

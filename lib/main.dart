@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
         "/homepage": (context) => const HomePage(),
         "/details": (context) => const Details(),
         "/registration": (context) => const RegistrationForm(),
+        "/bottomNav":(context) => const BottomNav()
       },
     );
   }

@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: const Color(0xffe2fffe),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         actions: [
           IconButton(
@@ -46,9 +47,9 @@ class _HomePageState extends State<HomePage> {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2),
-                    itemCount: categories.length,
+                    itemCount: categoriesList.length,
                     itemBuilder: (((context, index) {
-                      final cat = categories[index]!;
+                      final cat = categoriesList.elementAt(index).cat;
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
@@ -66,8 +67,15 @@ class _HomePageState extends State<HomePage> {
                                     topRight: Radius.circular(15),
                                   ),
                                 ),
-                                child: const Center(
-                                  child: Text("Icon"),
+                                child: Center(
+                                  child: SizedBox(
+                                    height: 40,
+                                    width: 40,
+                                    child: Image(
+                                        image: AssetImage(categoriesList
+                                            .elementAt(index)
+                                            .img)),
+                                  ),
                                 ),
                               ),
                             ),
