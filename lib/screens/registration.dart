@@ -171,7 +171,7 @@ class RegistrationFormState extends State<RegistrationForm> {
                             "name": hospitalNameController.text,
                           }
                         }).whenComplete(() {
-                          Navigator.pushNamed(context, '/homepage');
+                          Navigator.pushNamed(context, '/bottomNav');
                           hospitalNameController.dispose();
                           landlineNoController.dispose();
                           emergencyNoController.dispose();
