@@ -96,15 +96,15 @@ class _CatCountState extends State<CatCount> {
                         FirebaseFirestore.instance
                             .collection('Hospitals')
                             .doc(uid)
-                            .set({
+                            .update({
                           "Items": [
                             {
                               "Oxygen": oxyController.text,
-                              "Bed": oxyController.text,
-                              "Ambulance": oxyController.text,
-                              "Nurse": oxyController.text,
-                              "Doctor": oxyController.text,
-                              "Attenders": oxyController.text,
+                              "Bed": bedController.text,
+                              "Ambulance": ambulanceController.text,
+                              "Nurse": nurseController.text,
+                              "Doctor": doctorController.text,
+                              "Attenders": attendersController.text,
                             }
                           ]
                         }).whenComplete(() {

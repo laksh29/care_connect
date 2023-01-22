@@ -46,59 +46,19 @@ class Details extends StatelessWidget {
                               debugPrint(
                                   "======>" + snapshot.data!.docs.first.id);
                               return GestureDetector(
-                                child: Container(
-                                    height: 75,
-                                    width: 340,
-                                    margin: const EdgeInsets.only(
-                                        top: 5, left: 10, right: 10, bottom: 2),
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 20, vertical: 10),
-                                    decoration: BoxDecoration(
-                                      color: boxColor,
-                                      borderRadius: BorderRadius.circular(15),
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                snapshot.data!.docs
-                                                    .elementAt(index)[
-                                                        'hospitalDetails']
-                                                        ['name']
-                                                    .toString(),
-                                              ),
-                                              Text(
-                                                snapshot.data!.docs
-                                                    .elementAt(index)['Items']
-                                                        [index][cat]
-                                                    .toString(),
-                                                style: StyleConstants()
-                                                    .hospitalNameStyle,
-                                              )
-                                            ]),
-                                        Row(
-                                          children: [
-                                            Text(
-                                              "23 beds, 23 kms",
-                                              style: GoogleFonts.poppins(
-                                                  color: textColor),
-                                            ),
-                                            const Spacer(),
-                                            Icon(
-                                              Icons.navigate_next_rounded,
-                                              color: textColor,
-                                              size: 25,
-                                            )
-                                          ],
-                                        )
-                                      ],
-                                    )),
-                              );
+                                  child: ListTile(
+                                tileColor: Colors.teal,
+                                subtitle: Text(snapshot.data!.docs
+                                    .elementAt(index)
+                                    .get('Items')[0][cat]
+                                    .toString()),
+                                title: Text(
+                                  snapshot.data!.docs
+                                      .elementAt(index)
+                                      .get('hospitalDetails')['name']
+                                      .toString(),
+                                ),
+                              ));
                             }));
                       } else if (snapshot.hasError) {
                         return Center(child: Text(snapshot.error.toString()));

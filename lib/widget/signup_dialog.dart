@@ -77,14 +77,7 @@ Future<dynamic> buildSignup(
                               password: passwordController.text);
                       // debugPrint(emailController.text);
                       // debugPrint(passController.text);
-                      if (FirebaseAuth.instance.currentUser!.uid ==
-                          FirebaseFirestore.instance
-                              .collection('Hospitals')
-                              .id) {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const RegistrationForm(),
-                        ));
-                      }
+                  
                     } on FirebaseAuthException catch (e) {
                       Navigator.pop(context);
                       if (e.code == 'user-not-found') {
