@@ -118,7 +118,6 @@ Future<dynamic> buildSignup(
                         );
                       }
                     }
-                    Navigator.pushNamed(context, '/registration');
                   },
                   child: Text(
                     "Signup",

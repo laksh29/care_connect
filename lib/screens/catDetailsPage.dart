@@ -104,7 +104,3 @@ class Details extends StatelessWidget {
 }
 
 
-// Text(snapshot.data!.docs
-//                                     .elementAt(index)['Items'][index]
-//                                         ['itemName']
-//                                     .toString()),
