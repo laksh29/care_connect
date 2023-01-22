@@ -1,4 +1,5 @@
 import 'package:care_connect/constants/constants.dart';
+import 'package:care_connect/screens/catCount.dart';
 import 'package:care_connect/screens/catDetailsPage.dart';
 import 'package:care_connect/screens/homePage.dart';
 import 'package:care_connect/screens/profile.dart';
@@ -18,7 +19,7 @@ class _BottomNavState extends State<BottomNav> {
   int count = 0;
   final screens = [
     const HomePage(),
-    // const RegistrationForm(),
+    const CatCount(),
     const Profile(),
   ];
   @override
@@ -36,8 +37,8 @@ class _BottomNavState extends State<BottomNav> {
         items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.home_outlined), label: "Home"),
-          // BottomNavigationBarItem(
-          //     icon: Icon(Icons.contact_page_sharp), label: "Registration Form"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.check_box_outlined), label: "Available"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
         selectedItemColor: const Color.fromARGB(255, 229, 228, 247),

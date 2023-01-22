@@ -10,7 +10,7 @@ Future<dynamic> buildLogin(BuildContext context) {
       builder: (context) => AlertDialog(
           title: Text(
             "Login",
-            style: StyleConstants().titleStyle,
+            style: StyleConstants().signupStyle,
           ),
           content: Column(
             mainAxisSize: MainAxisSize.min,

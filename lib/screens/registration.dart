@@ -4,6 +4,8 @@ import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
+import '../widget/registrationForm.dart';
+
 class RegistrationForm extends StatefulWidget {
   const RegistrationForm({super.key});
 
@@ -128,7 +130,9 @@ class RegistrationFormState extends State<RegistrationForm> {
                           backgroundColor: boxColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0))),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/bottomNav");
+                      },
                       child: Text(
                         "Submit",
                         style: StyleConstants().submitStyle,
@@ -143,31 +147,3 @@ class RegistrationFormState extends State<RegistrationForm> {
   }
 }
 
-class RegistrationField extends StatelessWidget {
-  TextEditingController controller = TextEditingController();
-  String hintText;
-  double height;
-  TextInputType type;
-  RegistrationField(
-      {super.key,
-      required this.hintText,
-      this.height = 50.0,
-      required this.type});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      width: 300,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          border: Border.all(color: boxColor, width: 2)),
-      child: CustomTextField(
-          textInputType: type,
-          obscureText: false,
-          hintText: hintText,
-          icon: null,
-          controller: controller),
-    );
-  }
-}
