@@ -13,6 +13,7 @@ class RegistrationForm extends StatefulWidget {
 
 class RegistrationFormState extends State<RegistrationForm> {
   PlatformFile? pickedFile;
+
   Future uploadFile() async {
     // yeh locha jara file access karne mai, check kar le
     // final file = File([], pickedFile!.path!);
@@ -120,6 +121,7 @@ class RegistrationFormState extends State<RegistrationForm> {
 }
 
 class RegistrationField extends StatelessWidget {
+  TextEditingController controller = TextEditingController();
   String hintText;
   double height;
   TextInputType type;
@@ -141,7 +143,8 @@ class RegistrationField extends StatelessWidget {
           textInputType: type,
           obscureText: false,
           hintText: hintText,
-          icon: null),
+          icon: Icons.person,
+          controller: controller),
     );
   }
 }

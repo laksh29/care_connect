@@ -1,4 +1,6 @@
 import 'package:care_connect/constants/constants.dart';
+import 'package:care_connect/hospitalData/hospital_data_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -75,7 +77,8 @@ class _HomePageState extends State<HomePage> {
                               flex: 1,
                               child: GestureDetector(
                                 onTap: () {
-                                  Navigator.pushNamed(context, "/details");
+                                  Navigator.pushNamed(context, "/details",
+                                      arguments: cat);
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
