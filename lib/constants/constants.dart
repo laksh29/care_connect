@@ -21,6 +21,13 @@ class StyleConstants {
   );
   TextStyle buttonTextStyle =
       GoogleFonts.poppins(fontSize: 22, color: textColor);
+  TextStyle profileStyle = GoogleFonts.poppins(
+    fontSize: 15,
+    fontWeight: FontWeight.w500,
+    color: textColor,
+  );
+  TextStyle submitStyle = GoogleFonts.poppins(
+      fontSize: 15, color: headingColor, fontWeight: FontWeight.bold);
 }
 
 class StringConstants {}

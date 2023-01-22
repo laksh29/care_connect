@@ -8,6 +8,7 @@ class CustomTextField extends StatelessWidget {
   bool obscureText;
   String hintText;
   IconData? icon;
+  TextEditingController controller;
   CustomTextField({
     Key? key,
     required this.textInputType,

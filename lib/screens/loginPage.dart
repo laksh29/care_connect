@@ -20,67 +20,72 @@ class LoginPage extends StatelessWidget {
       backgroundColor: pageBgColor,
       body: SafeArea(
           child: Center(
-        child: Column(
-          children: [
-            buildHeight(30.0),
-            SizedBox(
-              height: 250,
-              child: AspectRatio(
-                aspectRatio: 1,
-                child: Container(
-                  color: Colors.grey,
-                ),
-              ),
-            ),
-            buildHeight(10.0),
-            Text("CareConnect", style: StyleConstants().titleStyle),
-            const Spacer(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+        child: SingleChildScrollView(
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            child: Column(
               children: [
+                buildHeight(30.0),
                 SizedBox(
-                  height: 60,
-                  width: 120,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: ctaBgColor,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15))),
-                    onPressed: () {
-                      buildLogin(context);
-                    },
-                    child: Text(
-                      "Login",
-                      style: StyleConstants().buttonTextStyle,
+                  height: 250,
+                  child: AspectRatio(
+                    aspectRatio: 1,
+                    child: Container(
+                      color: Colors.grey,
                     ),
                   ),
                 ),
-                buildWidth(15.0),
-                SizedBox(
-                  height: 60,
-                  width: 120,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: ctaBgColor,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15))),
-                    onPressed: () {
-                      buildSignup(context,
-                          emailController: emailController,
-                          passwordController: passwordController);
-                    },
-                    child: Text(
-                      "Signup",
-                      style: StyleConstants().buttonTextStyle,
+                buildHeight(10.0),
+                Text("CareConnect", style: StyleConstants().titleStyle),
+                const Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 60,
+                      width: 120,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: ctaBgColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15))),
+                        onPressed: () {
+                          buildLogin(context);
+                        },
+                        child: Text(
+                          "Login",
+                          style: StyleConstants().buttonTextStyle,
+                        ),
+                      ),
                     ),
-                  ),
+                    buildWidth(15.0),
+                    SizedBox(
+                      height: 60,
+                      width: 120,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: ctaBgColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15))),
+                        onPressed: () {
+                          buildSignup(context,
+                              emailController: emailController,
+                              passwordController: passwordController);
+                        },
+                        child: Text(
+                          "Signup",
+                          style: StyleConstants().buttonTextStyle,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
+                const SizedBox(
+                  height: 80,
+                )
               ],
             ),
-            const SizedBox(
-              height: 80,
-            )
-          ],
+          ),
         ),
       )),
     );

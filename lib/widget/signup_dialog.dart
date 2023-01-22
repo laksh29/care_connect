@@ -1,5 +1,4 @@
 import 'package:care_connect/constants/constants.dart';
-import 'package:care_connect/core/user_auth.dart';
 import 'package:care_connect/widget/custom_textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -119,6 +118,7 @@ Future<dynamic> buildSignup(
                         );
                       }
                     }
+                    Navigator.pushNamed(context, '/registration');
                   },
                   child: Text(
                     "Signup",

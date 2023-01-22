@@ -17,22 +17,22 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffe2fffe),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        actions: [
+          IconButton(
+              onPressed: () async {
+                await FirebaseAuth.instance.signOut();
+              },
+              icon: const Icon(Icons.logout))
+        ],
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
           child: Column(
             children: [
-              buildHeight(20.0),
-              Row(
-                children: [
-                  // Text(FirebaseAuth.instance.currentUser!.email.toString()),
-                  IconButton(
-                      onPressed: () {
-                        FirebaseAuth.instance.signOut();
-                      },
-                      icon: const Icon(Icons.logout))
-                ],
-              ),
+              buildHeight(5.0),
               searchBox(),
               buildHeight(20.0),
               Text(
@@ -75,7 +75,8 @@ class _HomePageState extends State<HomePage> {
                               flex: 1,
                               child: GestureDetector(
                                 onTap: () {
-                                  Navigator.pushNamed(context, "/details");
+                                  Navigator.pushNamed(context, "/details",
+                                      arguments: cat);
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
