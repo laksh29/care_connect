@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
       body: SafeArea(
           child: Center(
         child: SingleChildScrollView(
-          child: Container(
+          child: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Column(
               children: [

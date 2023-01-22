@@ -1,8 +1,12 @@
-import 'package:care_connect/constants/constants.dart';
-import 'package:care_connect/widget/custom_textfield.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+
+import 'package:care_connect/constants/constants.dart';
+import 'package:care_connect/widget/custom_textfield.dart';
 
 class RegistrationForm extends StatefulWidget {
   const RegistrationForm({super.key});
@@ -33,6 +37,13 @@ class RegistrationFormState extends State<RegistrationForm> {
     });
   }
 
+  TextEditingController hospitalNameController = TextEditingController();
+  TextEditingController landlineNoController = TextEditingController();
+  TextEditingController emergencyNoController = TextEditingController();
+  TextEditingController pocNameController = TextEditingController();
+  TextEditingController pocContactController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,34 +64,41 @@ class RegistrationFormState extends State<RegistrationForm> {
                   buildHeight(25.0),
                   // ----------------------------------------------Name of Hospital
                   RegistrationField(
+                    controller: hospitalNameController,
                     hintText: "Name of Hospital",
                     type: TextInputType.name,
                   ),
                   buildHeight(15.0),
                   // ------------------------------------Lindline number of Hospital
                   RegistrationField(
+                      controller: landlineNoController,
                       hintText: "Landline Number of Hospital",
                       type: TextInputType.number),
 
                   buildHeight(15.0),
                   // ------------------------------------Emergency number of hospital
                   RegistrationField(
+                      controller: emergencyNoController,
                       hintText: "Emergency Number of Hospital",
                       type: TextInputType.number),
                   buildHeight(15.0),
                   // -----------------------------------------------------name of POC
                   RegistrationField(
-                      hintText: "Name of POC", type: TextInputType.name),
+                      controller: pocNameController,
+                      hintText: "Name of POC",
+                      type: TextInputType.name),
 
                   buildHeight(15.0),
                   // --------------------------------------------contsct number of POC
                   RegistrationField(
+                      controller: pocContactController,
                       hintText: "Contact number of POC",
                       type: TextInputType.number),
 
                   buildHeight(15.0),
                   // -----------------------------------------address of the hospital
                   RegistrationField(
+                      controller: addressController,
                       hintText: "Address of Hospital",
                       height: 100,
                       type: TextInputType.name),
@@ -128,7 +146,29 @@ class RegistrationFormState extends State<RegistrationForm> {
                           backgroundColor: boxColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0))),
-                      onPressed: () {},
+                      onPressed: () {
+                        var uid = FirebaseAuth.instance.currentUser!.uid;
+                        FirebaseFirestore.instance
+                            .collection('Hospitals')
+                            .doc(uid)
+                            .set({
+                          "hospitalDetails": {
+                            "address": addressController.text,
+                            "emergencyNo": emergencyNoController.text,
+                            "landlineNo": landlineNoController.text,
+                            "location": null,
+                            "name": hospitalNameController.text,
+                          }
+                        }).whenComplete(() {
+                          Navigator.pushNamed(context, '/homepage');
+                          hospitalNameController.dispose();
+                          landlineNoController.dispose();
+                          emergencyNoController.dispose();
+                          pocNameController.dispose();
+                          pocContactController.dispose();
+                          addressController.dispose();
+                        });
+                      },
                       child: Text(
                         "Submit",
                         style: StyleConstants().submitStyle,
@@ -144,15 +184,17 @@ class RegistrationFormState extends State<RegistrationForm> {
 }
 
 class RegistrationField extends StatelessWidget {
-  TextEditingController controller = TextEditingController();
+  TextEditingController controller;
   String hintText;
   double height;
   TextInputType type;
-  RegistrationField(
-      {super.key,
-      required this.hintText,
-      this.height = 50.0,
-      required this.type});
+  RegistrationField({
+    Key? key,
+    required this.controller,
+    required this.hintText,
+    this.height = 50.0,
+    required this.type,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

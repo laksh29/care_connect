@@ -1,5 +1,7 @@
 import 'package:care_connect/constants/constants.dart';
+import 'package:care_connect/screens/registration.dart';
 import 'package:care_connect/widget/custom_textfield.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -75,7 +77,14 @@ Future<dynamic> buildSignup(
                               password: passwordController.text);
                       // debugPrint(emailController.text);
                       // debugPrint(passController.text);
-
+                      if (FirebaseAuth.instance.currentUser!.uid ==
+                          FirebaseFirestore.instance
+                              .collection('Hospitals')
+                              .id) {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const RegistrationForm(),
+                        ));
+                      }
                     } on FirebaseAuthException catch (e) {
                       Navigator.pop(context);
                       if (e.code == 'user-not-found') {

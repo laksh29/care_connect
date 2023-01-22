@@ -54,10 +54,23 @@ class Details extends StatelessWidget {
                                   color: boxColor,
                                   borderRadius: BorderRadius.circular(15),
                                 ),
-                                child: Text(snapshot.data!.docs
-                                    .elementAt(index)['Items'][index]
-                                        ['itemName']
-                                    .toString()),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      snapshot.data!.docs
+                                          .elementAt(index)['hospitalDetails']
+                                              ['name']
+                                          .toString(),
+                                    ),
+                                    Text(
+                                      snapshot.data!.docs
+                                          .elementAt(index)['Items'][index][cat]
+                                          .toString(),
+                                    ),
+                                  ],
+                                ),
                               );
                             }));
                       } else if (snapshot.hasError) {
